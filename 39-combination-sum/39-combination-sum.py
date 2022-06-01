@@ -10,7 +10,7 @@ class Solution:
         results = []
         N = len(candidates)
         while fringe:
-            variables, idx = fringe.pop(0)
+            variables, idx = fringe.pop()
             
             
             if sum(variables) == target:
