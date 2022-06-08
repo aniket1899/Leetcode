@@ -16,7 +16,11 @@ class Solution:
             else:
                 counts[t[i]] = -1
         # print(counts.values())
-        return not any(counts.values())
+        # return not any(counts.values())
+        for c in counts.values():
+            if c!=0:
+                return False
+        return True
                 
             
         
