@@ -14,14 +14,31 @@ class Solution:
         fringe = deque([(root, 1)])
         
         while fringe:
-            curr, depth = fringe.popleft()
-            if not (curr.left or curr.right):
-                return depth
-            
-            else:
-                if curr.right:
-                    fringe.append((curr.right, depth+1))
-                if curr.left:
-                    fringe.append((curr.left, depth+1))
-                    
+            tmp = deque([])
+            for i in range(len(fringe)):
+                curr, depth = fringe.popleft()
+                if not (curr.left or curr.right):
+                    return depth
+                else:
+                    if curr.right:
+                        tmp.append((curr.right, depth+1))
+                    if curr.left:
+                        tmp.append((curr.left, depth+1))
+            fringe = tmp
         return depth
+        
+#         while fringe:
+#             curr, depth = fringe.popleft()
+#             if not (curr.left or curr.right):
+#                 return depth
+            
+#             else:
+#                 if curr.right:
+#                     fringe.append((curr.right, depth+1))
+#                 if curr.left:
+#                     fringe.append((curr.left, depth+1))
+                    
+#         return depth
+        
+            
+    
