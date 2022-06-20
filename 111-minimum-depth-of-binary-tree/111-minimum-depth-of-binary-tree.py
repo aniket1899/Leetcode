@@ -1,3 +1,5 @@
+from collections import deque
+
 # Definition for a binary tree node.
 # class TreeNode:
 #     def __init__(self, val=0, left=None, right=None):
@@ -8,10 +10,11 @@ class Solution:
     def minDepth(self, root: Optional[TreeNode]) -> int:
         if not root:
             return 0
-        fringe = [(root, 1)]
+        
+        fringe = deque([(root, 1)])
         
         while fringe:
-            curr, depth = fringe.pop(0)
+            curr, depth = fringe.popleft()
             if not (curr.left or curr.right):
                 return depth
             
