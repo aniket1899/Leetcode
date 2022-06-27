@@ -12,7 +12,7 @@ class Solution:
                 tmp0 = 0
                 tmp1 += 1
                 count[1] = max(count[1], tmp1)
-        print(count[1] , count[0])
+        # print(count[1] , count[0])
         return count[1] > count[0]
 #         pat1s = re.compile(r'[1]+')
 #         pat0s = re.compile(r'[0]+')
