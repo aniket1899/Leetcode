@@ -9,7 +9,7 @@ class Solution:
         if not (node.left or node.right):
             return int(strnum + str(node.val))
         
-        left, right = None, None
+        left, right = 0, 0
         if  node.left:
             left = self.addLeftRight(node.left, strnum + str(node.val))
             
@@ -17,10 +17,10 @@ class Solution:
             right = self.addLeftRight(node.right, strnum + str(node.val))
         # print(left, right)
         # print("===")
-        if left and right:
-            return int(left) + int(right)
-        else:
-            return left or right
+        # if left and right:
+        return int(left) + int(right)
+        # else:
+        #     return left or right
         
         
         
