@@ -28,7 +28,7 @@ class Solution:
                 # else bfs
                 
                     
-                print(i, j)
+                # print(i, j)
                 fringe = [(i, j)]
                 areasTBC = []
                 if i in [0, M-1]  or j in [0, N-1]:
