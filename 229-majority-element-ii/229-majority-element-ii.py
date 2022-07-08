@@ -9,6 +9,8 @@ class Solution:
         
         for num in nums:
             # if counts[num] <= n3:
+            if num in res:
+                continue
             counts[num] += 1
             if counts[num] > n3:
                 res.add(num)
