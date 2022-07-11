@@ -6,25 +6,18 @@ class MedianFinder:
         # self.minheap =  [] # negative values
         # self.maxheap = []
         
-        self.upperHeap = [float('inf')]
-        self.lowerHeap = [float('inf')]
+        self.maxHeap = []
+        self.minHeap = []
         
 
     def addNum(self, num: int) -> None:
         
-        upperMin = + self.upperHeap[0]
-        lowerMax = - self.lowerHeap[0]
-
-        if num > upperMin or (lowerMax<=num<=upperMin and len(self.upperHeap)==len(self.lowerHeap)):
-            heappush(self.upperHeap, num)
+        if len(self.maxHeap) == len(self.minHeap):
+            heappush(self.minHeap, -num)
+            heappush(self.maxHeap, -heappop(self.minHeap) )
         else:
-            heappush(self.lowerHeap, -num)
-
-        # maintain the invariant that their lens are equal, or upper has 1 more than lower
-        if len(self.upperHeap)-len(self.lowerHeap) > 1:
-            heappush( self.lowerHeap, -heappop( self.upperHeap ) )
-        elif len(self.lowerHeap) > len(self.upperHeap):
-            heappush( self.upperHeap, -heappop( self.lowerHeap ) )
+            heappush(self.maxHeap, num)
+            heappush(self.minHeap, -heappop(self.maxHeap))
 #         if len(self.minheap) == len(self.maxheap):
 #             if not self.maxheap or self.maxheap[0] <= num:
 #                 heappush(self.maxheap, num)
@@ -41,13 +34,18 @@ class MedianFinder:
         
 
     def findMedian(self) -> float:
-        if len(self.upperHeap) == len(self.lowerHeap):
-            upperMin = + self.upperHeap[0]
-            lowerMax = - self.lowerHeap[0]
-            return ( float(upperMin) + float(lowerMax) ) / 2.0
+        if len(self.minHeap) == len(self.maxHeap):
+            return (self.maxHeap[0] - self.minHeap[0])/2
         else:
-            assert len(self.upperHeap) == len(self.lowerHeap) + 1
-            return float(self.upperHeap[0])
+            return float(self.maxHeap[0])
+        
+        
+        # if len(self.upperHeap) == len(self.lowerHeap):
+        #     upperMin = + self.upperHeap[0]
+        #     lowerMax = - self.lowerHeap[0]
+        #     return ( float(upperMin) + float(lowerMax) ) / 2.0
+        # else:
+        #     return float(self.upperHeap[0])
         # print(self.minheap ,self.maxheap)
         # if len(self.maxheap) == len(self.minheap) + 1:
         #     return float(self.maxheap[0])
