@@ -23,10 +23,14 @@ class Solution:
         for i in range(len(s)-9):
             # print(i, len(s))
             subseq  = s[i:i+10]
-            if ctr[subseq] <= 1:
-                ctr[subseq] += 1
-                if ctr[subseq] > 1:
-                    valid_subseqs.add(subseq)
+            if ctr[subseq] == 0:
+                ctr[subseq] = 1
+            else:
+                valid_subseqs.add(subseq)
+            # if ctr[subseq] <= 1:
+            #     ctr[subseq] += 1
+            #     if ctr[subseq] > 1:
+            #         valid_subseqs.add(subseq)
         # print(ctr)
         return list(valid_subseqs)
                         
