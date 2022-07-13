@@ -6,12 +6,12 @@ class Solution:
             return False
         patmap = defaultdict(lambda: None)
         for i in range(len(s)):
-            if patmap[s[i]]:
-                if patmap[s[i]] != pattern[i]:
+            if patmap[pattern[i]]:
+                if patmap[pattern[i]] != s[i]:
                     return False
                 
             else:
-                patmap[s[i]] = pattern[i]
+                patmap[pattern[i]] = s[i]
                 
         return True
         
