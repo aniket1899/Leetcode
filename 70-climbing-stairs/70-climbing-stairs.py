@@ -4,11 +4,11 @@ class Solution:
         dp = [1, 1]+ [0] * (n-2)
         
         for i in range(n):
-            if i+1 < n:
-                dp[i+1] += dp[i]
             if i+2 < n:
+                dp[i+1] += dp[i]
                 dp[i+2] += dp[i]
-            
+            elif i+1 < n:
+                dp[i+1] += dp[i]
             # print(dp)
         
         return dp[-1]
