@@ -8,6 +8,7 @@ from collections import deque
 class Solution:
     def isSameTree(self, p: Optional[TreeNode], q: Optional[TreeNode]) -> bool:
         
+        # solution 2
         stack = deque([(p, q)])
         
         while stack:
@@ -23,7 +24,7 @@ class Solution:
             
         return True
         
-        
+        # solution 1
 #         if p is None and q is None:
 #             return True
 #         elif p and q:
