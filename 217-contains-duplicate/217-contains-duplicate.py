@@ -19,7 +19,15 @@ class Solution:
             prev = num
         
         return False
+    def solution_3(self, nums: List[int]) -> bool:
+        nums.sort()
+        prev = nums[0]
+        for num in nums:
+            if num == prev:
+                return True
+            prev = num
+        
+        return False
     
     def containsDuplicate(self, nums: List[int]) -> bool:
-    
         return self.solution_2(nums)
