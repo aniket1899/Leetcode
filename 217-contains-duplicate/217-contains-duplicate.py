@@ -10,7 +10,16 @@ class Solution:
             ctr[num] += 1
             
         return False
+    def solution_2(self, nums: List[int]) -> bool:
+        nums.sort()
+        prev = nums[0]
+        for num in nums[1:]:
+            if num == prev:
+                return True
+            prev = num
+        
+        return False
     
     def containsDuplicate(self, nums: List[int]) -> bool:
     
-        return self.solution_1(nums)
+        return self.solution_2(nums)
