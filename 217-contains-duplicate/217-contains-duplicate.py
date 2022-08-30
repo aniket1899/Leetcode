@@ -20,14 +20,14 @@ class Solution:
         
         return False
     def solution_3(self, nums: List[int]) -> bool:
-        nums.sort()
-        prev = nums[0]
+        ctr = {}
+        
         for num in nums:
-            if num == prev:
+            if num in ctr:
                 return True
-            prev = num
+            ctr[num] = 1
         
         return False
     
     def containsDuplicate(self, nums: List[int]) -> bool:
-        return self.solution_2(nums)
+        return self.solution_3(nums)
