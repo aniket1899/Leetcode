@@ -2,6 +2,7 @@ from heapq import heappush, heappop, heapify
 from collections import deque
 class Solution:
     def merge(self, intervals: List[List[int]]) -> List[List[int]]:
+        # solution 1
 #         heapify(intervals)
 #         merged = deque([heappop(intervals)])
 #         openInt = True
@@ -14,6 +15,10 @@ class Solution:
 #                 merged.append([start, end])
                 
 #         return merged
+
+
+
+        # solution 2
 
         intervals.sort()
         # print(intervals)
