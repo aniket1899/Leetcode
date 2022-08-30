@@ -20,12 +20,12 @@ class Solution:
         
         return False
     def solution_3(self, nums: List[int]) -> bool:
-        ctr = {}
+        ctr = set()
         
         for num in nums:
             if num in ctr:
                 return True
-            ctr[num] = 1
+            ctr.add(num)
         
         return False
     
