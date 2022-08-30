@@ -21,7 +21,18 @@ class Solution:
         
 #         return False
     
-    def solution_3(self, nums: List[int]) -> bool:
+#     def solution_3(self, nums: List[int]) -> bool:
+#         ctr = set()
+        
+#         for num in nums:
+#             if num in ctr:
+#                 return True
+#             ctr.add(num)
+        
+#         return False
+    
+    def containsDuplicate(self, nums: List[int]) -> bool:
+        # return self.solution_3(nums)
         ctr = set()
         
         for num in nums:
@@ -30,6 +41,3 @@ class Solution:
             ctr.add(num)
         
         return False
-    
-    def containsDuplicate(self, nums: List[int]) -> bool:
-        return self.solution_3(nums)
