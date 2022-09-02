@@ -11,7 +11,6 @@ class Solution:
             return None
         
         stack = [(head.val, id(head), head)  for head in lists if head]
-        # print(stack)
         heapify(stack)
         
         if not len(stack):
@@ -26,9 +25,6 @@ class Solution:
         while stack:
             _,_, node = heappop(stack)
             if node.next:
-                # print(stack)
-                # print(node.next.val, node.next)
-                # print('--')
                 heappush(stack, (node.next.val, id(node.next), node.next))
                 node.next = None
             sortedList.next = node
